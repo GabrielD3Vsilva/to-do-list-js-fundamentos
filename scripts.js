@@ -17,6 +17,14 @@ function showTasks() {
     tasksTable.innerHTML = '';
 
     for( let i = 0; i < tasksList.length; i++ ) {
-        tasksTable.innerHTML += `<div class="row mt-3"> <h3> ${tasksList[i]} </h3> </div>`;
+        tasksTable.innerHTML += `
+        <div class="row mt-3"><h3> ${tasksList[i]} </h3></div>
+        <div class="row mt-1"><button onclick="deleteTask(${i})">Deletar tarefa</button></div>
+        `;
     }
-}   
+}
+
+function deleteTask(index) {
+    tasksList.splice(index, 1);
+    showTasks( );
+}
